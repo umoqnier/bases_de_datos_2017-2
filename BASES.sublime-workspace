@@ -1,0 +1,395 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"vCl",
+				"vClvTutor"
+			],
+			[
+				"cl",
+				"clvTutor"
+			],
+			[
+				"fe",
+				"fechaVenc"
+			],
+			[
+				"inset",
+				"insertaAlumno"
+			],
+			[
+				"inse",
+				"insertaTutor"
+			],
+			[
+				"IN",
+				"INTO"
+			],
+			[
+				"ins",
+				"insertaResponsable"
+			],
+			[
+				"N",
+				"NULL"
+			],
+			[
+				"ser",
+				"servicio"
+			],
+			[
+				"¿Cuan",
+				"¿Cuántas"
+			],
+			[
+				"pregu",
+				"preguntas"
+			],
+			[
+				"val",
+				"values_list"
+			],
+			[
+				"ch",
+				"checkedValue"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"ini",
+				"indice_list"
+			],
+			[
+				"indi",
+				"indice_list"
+			],
+			[
+				"resp",
+				"respuestas"
+			],
+			[
+				"preg",
+				"pregunta"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"remain",
+				"remainder"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"remai",
+				"Remainder"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "PROYECTOBD1.sql",
+			"settings":
+			{
+				"buffer_size": 3889,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 132.0,
+		"last_filter": "Boxy",
+		"selected_items":
+		[
+			[
+				"Boxy",
+				"Boxy Theme: Activation"
+			],
+			[
+				"Package control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 195.0,
+		"history":
+		[
+			" import urllib2,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation') "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/diego/Documentos/Bases de Datos/PROYECTO/PROYECTOBD_PARTE2.SQL",
+		"/media/diego/Linux Mint/PROYECTO_ESTRUCTURA_BASE.sql",
+		"/media/diego/MENDEZ/PROYECTOBD_P1.2.sql",
+		"/home/diego/Descargas/PROYECTOBD1.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/tema_3.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/practica_2.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/muestraArea.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/aux_ejemplo_6.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/tema_5_ejemplo_6.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/tema_3_ejemplo_5.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/tema_3_ejemplo_4.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/tema_3_ejemplo_3.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/tema_3_ejemplo_2.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/tema_3_ejemplo_1.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/emepljo_9.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/ejercicioDDL.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/ejemplo_11AUX.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/ejemplo_10.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/ejemplo_8.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/ejemplo_7.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/ejemplo_2.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/ejemplo2_1.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/DB_practica_7.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/BD-Practica06.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/aux_tema_3_ejemplo_5.sql",
+		"/home/diego/Documentos/Bases de Datos/ejemplos_sql/aux_ejercicioDDL.sql",
+		"/home/diego/Documentos/Ingeniería de Software/tutorial/swebok.html",
+		"/home/diego/Documentos/Bases de Datos/PROYECTO/PROYECTOBD1.sql",
+		"/home/diego/Documentos/Ingeniería de Software/tutorial/js/cuestionario.js",
+		"/home/diego/Documentos/Ingeniería de Software/tutorial/cuestionario.html",
+		"/home/diego/Documentos/Ingeniería de Software/tutorial/spice.html",
+		"/home/diego/Documentos/Ingeniería de Software/Planeacion/page.html",
+		"/home/diego/Documentos/Ingeniería de Software/Planeacion/cuestionario.js",
+		"/home/diego/Documentos/Ingeniería de Software/tutorial/index.html",
+		"/home/diego/Documentos/Planeacion/page.html",
+		"/home/diego/Documentos/Ingeniería de Software/tutorial/objetivo.html",
+		"/home/diego/Documentos/Planeacion/index.html",
+		"/home/diego/Documentos/web-marx/nosotros.html",
+		"/home/diego/Documentos/web-marx/articulo79.html",
+		"/home/diego/Documentos/web-marx/articulo78.html",
+		"/home/diego/Documentos/web-marx/articulo70.html",
+		"/home/diego/Documentos/web-marx/index.html",
+		"/home/diego/Documentos/web-marx/resources/70/fra-1/rp.pdf",
+		"/home/diego/Documentos/web-marx/css/bootstrap.css",
+		"/home/diego/Documentos/web-marx/css/main.css",
+		"/home/diego/Documentos/web-marx/transparencia.html",
+		"/home/diego/Documentos/web-marx/.gitignore",
+		"/home/diego/PycharmProjects/dev.f_semana_2/keep/landing/models.py",
+		"/home/diego/PycharmProjects/dev.f_semana_2/keep/landing/urls.py",
+		"/home/diego/PycharmProjects/dev.f_semana_2/keep/templates/landing/detalle.html",
+		"/home/diego/PycharmProjects/dev.f_semana_2/keep/landing/views.py",
+		"/home/diego/PycharmProjects/dev.f_semana_2/keep/templates/landing/agregar.html",
+		"/home/diego/PycharmProjects/dev.f_semana_2/keep/templates/index.html"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"INTRO",
+			"alumno",
+			"default",
+			"cuestion",
+			"checar_resp_selec",
+			"radio_boton",
+			"count",
+			"parse",
+			"examen",
+			"estructura_pregunta",
+			"correcta",
+			"cuestion",
+			"col-md-5",
+			"div",
+			">\n",
+			"Fracción I"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"INTO",
+			"col-md-4",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "PROYECTOBD1.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3157,
+								3157
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1417.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.22,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 160.0
+	},
+	"pinned_build_system": "",
+	"project": "BASES.sublime-project",
+	"replace":
+	{
+		"height": 90.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 50.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
