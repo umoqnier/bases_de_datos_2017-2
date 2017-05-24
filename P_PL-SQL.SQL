@@ -73,23 +73,19 @@ END creaNotaCredito;
 
 CREATE OR REPLACE PROCEDURE insertaResponsable
 (	vClvRes IN CHAR,
-	vClvParen IN CHAR,
 	vIdTipo IN CHAR,
+	vNomRes IN VARCHAR2,
 	vApPatRes IN VARCHAR2,
 	vApMatRes IN VARCHAR2,
-	vNomRes IN VARCHAR2,
 	vFechaNac IN DATE,
 	vSexoRes IN CHAR,
-	vCelular IN VARCHAR2,
-	vCalleRes IN VARCHAR2,
-	vColRes IN VARCHAR2,
-	vDelRes IN VARCHAR2,
-	vCP IN CHAR
+	VDirec IN VARCHAR2,
+	vCelular IN VARCHAR2
 )
 AS
 BEGIN
 	INSERT INTO responsable
-	VALUES(vClvRes,vClvParen,vIdTipo,vApPatRes,vApMatRes,vNomRes,vFechaNac,vSexoRes,vCelular,vCalleRes,vColRes,vDelRes,vCP);
+	VALUES(vClvRes, vIdTipo, vNomRes, vApPatRes, vApMatRes, vFechaNac, vSexoRes, vDirec, vCelular);
 	COMMIT;
 END insertaResponsable;
 /
@@ -118,15 +114,12 @@ CREATE OR REPLACE PROCEDURE insertaAlumno
 	vApMatAlu IN VARCHAR2,	
 	vFechaNac IN DATE,
 	vSexoAlu IN CHAR, 
-	vCalleAlu IN VARCHAR2,
-	vColAlu IN VARCHAR2,
-	vDelAlu IN VARCHAR2,
-	vCP IN CHAR	
+	vDirec IN VARCHAR2
 )
 AS
 BEGIN
 	INSERT INTO alumno
-	VALUES(vClvAlumno,vClvTutor,vCurp,vNomAlu,vApPatAlu,vApMatAlu,vFechaNac,vSexoAlu,vCalleAlu,vColAlu,vDelAlu,vCP);
+	VALUES(vClvAlumno,vClvTutor,vCurp,vNomAlu,vApPatAlu,vApMatAlu,vFechaNac,vSexoAlu,vDirec);
 	COMMIT;
 END insertaAlumno;
 /
@@ -248,8 +241,8 @@ AS
 BEGIN
 	DBMS_OUTPUT.PUT_LINE('Precios de: '||vGrado||' Grado');
 	FOR preciosReg IN cursorServicios LOOP
-		DBMS_OUTPUT.PUT_LINE(' | '||preciosReg.s.clvServ||' | '||preciosReg.numGrado||' | '||preciosReg.nomServicio||' | '||preciosReg.precio);
-	END LOOP
+		DBMS_OUTPUT.PUT_LINE(' | '||preciosReg.clvServ||' | '||preciosReg.numGrado||' | '||preciosReg.nomServicio||' | '||preciosReg.precio);
+	END LOOP;
 END preciosServicios;
 /
 
@@ -265,9 +258,26 @@ END bajaresponsable;
 /
 --Creacion de Vistas
 
-CREATE OR REPLACE VIEW obtenerPreciosServ
+--Ver si hay pago pendiente
+CREATE OR REPLACE VIEW vistaAdeudosXAlumno
 AS
-SELECT s.clvServ, numGrado, nomServicio AS NOMBRE, precio
-FROM servicios s
-INNER JOIN grad_serv gs
-ON s.clvServ = gs.clvServ;
+SELECT a.curp AS ALUMNO, nomServicio AS SERVICIO, importeCar AS "POR PAGAR", fechaVenc AS VENCE
+FROM cargo c
+INNER JOIN inscripcion i ON c.clvInscrip = i.clvInscrip
+INNER JOIN alumno a ON a.clvAlumno = i.clvAlumno
+INNER JOIN servicios s ON c.clvServ = s.clvServ;
+
+--Ver nota de credito y cargo por alumno
+ 
+--Tutor de cada alumno
+CREATE OR REPLACE VIEW vistaTutorXAlumno
+AS
+SELECT a.nomAlu AS ALUMNO, a.curp, r.nomRes AS TUTOR, r.apPatRes AS "APELLIDO PAT.", r.apMatRes AS "APELLIDO MAT.", r.celular, t.rfc
+FROM alumno a
+INNER JOIN tutor t ON a.clvTutor = t.clvTutor
+INNER JOIN responsable r ON t.clvTutor = r.clvRes;
+--Alumno mujer y hombres
+--Inscritos en que grupo
+SELECT a.nomAlu AS ALUMNO, a.apPatAlu AS "APELLIDO PAT", a.apMatAlu AS "APELLIDO MAT",
+--Liquidación de pagos
+--Horario del responsable con telefono

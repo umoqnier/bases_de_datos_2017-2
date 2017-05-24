@@ -90,13 +90,13 @@ CONSTRAINT CkNumPago CHECK(numPagos IN (1, 2, 3, 6, 10, 12)));
 CREATE TABLE cargo(
 noNotaCargo CHAR(10),
 clvInscrip CHAR(10) NOT NULL,
-clvServ CHAR(4) NOT NULL
+clvServ CHAR(4) NOT NULL,
 fechaCrea DATE DEFAULT SYSDATE NOT NULL,
 fechaVenc DATE NOT NULL,
 fechaPago DATE,
 importeCar NUMBER(11,2) NOT NULL,
 CONSTRAINT PkCargo PRIMARY KEY (noNotaCargo),
-CONSTRAINT FkCargoClvInscrip FOREIGN KEY (clvInscrip) REFERENCES inscripcion (clvInscrip)
+CONSTRAINT FkCargoClvInscrip FOREIGN KEY (clvInscrip) REFERENCES inscripcion (clvInscrip),
 CONSTRAINT FkCargoClvServ FOREIGN KEY (clvServ) REFERENCES servicios (clvServ) ON DELETE CASCADE);
 
 CREATE TABLE credito(
@@ -113,7 +113,7 @@ CONSTRAINT FkCreditoReferencia FOREIGN KEY (refCargo) REFERENCES cargo (noNotaCa
 CREATE TABLE alum_res(
 clvAlumno CHAR(10),
 clvRes CHAR(10),
-clvParen VARCHAR2(20),
+clvParen CHAR(10),
 CONSTRAINT PkAlumRes PRIMARY KEY (clvAlumno,clvRes),
 CONSTRAINT FkAlumResClvAlu FOREIGN KEY (clvAlumno) REFERENCES alumno (clvAlumno) ON DELETE CASCADE,
 CONSTRAINT FkAlumResClvRes FOREIGN KEY (clvRes) REFERENCES responsable (clvRes) ON DELETE CASCADE,

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"nom",
+				"nomAlu"
+			],
+			[
+				"se",
+				"servicios"
+			],
+			[
+				"fech",
+				"fechaPago"
+			],
+			[
 				"precio",
 				"preciosServicios"
 			],
@@ -108,27 +120,10 @@
 	"buffers":
 	[
 		{
-			"file": "PROYECTO_PROGRAM.SQL",
+			"file": "P_PL-SQL.SQL",
 			"settings":
 			{
-				"buffer_size": 10215,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "PROYECTO_ESTRUCTURA_BD.sql",
-			"settings":
-			{
-				"buffer_size": 3889,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "bajaresponsable-y-alumnosinscritos.sql",
-			"settings":
-			{
-				"buffer_size": 1183,
+				"buffer_size": 7531,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -142,6 +137,24 @@
 				"line_ending": "Unix",
 				"name": "Notas del proyecto"
 			}
+		},
+		{
+			"file": "P_inserts.sql",
+			"settings":
+			{
+				"buffer_size": 5741,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "P_estructura_DB.sql",
+			"settings":
+			{
+				"buffer_size": 4176,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
 		}
 	],
 	"build_system": "",
@@ -151,7 +164,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 132.0,
+		"height": 192.0,
 		"last_filter": "Boxy",
 		"selected_items":
 		[
@@ -172,7 +185,7 @@
 				"View: Toggle Menu"
 			]
 		],
-		"width": 485.0
+		"width": 431.0
 	},
 	"console":
 	{
@@ -197,6 +210,9 @@
 	],
 	"file_history":
 	[
+		"/home/diego/Escritorio/PROYECTO_PROGRAM.SQL",
+		"/home/diego/Documentos/Bases de Datos/PROYECTO/bajaresponsable-y-alumnosinscritos.sql",
+		"/home/diego/Escritorio/PROYECTO_ESTRUCTURA_BD.sql",
 		"/home/diego/Documentos/Bases de Datos/PROYECTO/PROYECTOBD1.sql",
 		"/home/diego/Documentos/Bases de Datos/PROYECTO/PROYECTOBD_PARTE2.SQL",
 		"/media/diego/Linux Mint/PROYECTO_ESTRUCTURA_BASE.sql",
@@ -267,6 +283,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			");\n",
+			"parentesco",
+			"clvTutor",
+			"responsable",
+			"alumno",
+			"servicios",
 			"pago",
 			"INTRO",
 			"alumno",
@@ -304,24 +326,28 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "PROYECTO_PROGRAM.SQL",
+					"file": "P_PL-SQL.SQL",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10215,
+						"buffer_size": 7531,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7649,
-								7649
+								7065,
+								7065
+							],
+							[
+								7469,
+								7469
 							]
 						],
 						"settings":
@@ -330,71 +356,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7620.0,
+						"translation.y": 3818.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "PROYECTO_ESTRUCTURA_BD.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3889,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2503,
-								2503
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1371.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "bajaresponsable-y-alumnosinscritos.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1183,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								610,
-								610
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 60.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "Notas del proyecto.txt",
 					"semi_transient": false,
 					"settings":
@@ -406,8 +375,8 @@
 						"selection":
 						[
 							[
-								474,
-								474
+								97,
+								97
 							]
 						],
 						"settings":
@@ -416,10 +385,76 @@
 							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 432.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "P_inserts.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5741,
+								5741
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3375.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "P_estructura_DB.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								210,
+								210
+							],
+							[
+								1406,
+								1406
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -442,11 +477,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -505,7 +547,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 164.0,
 	"status_bar_visible": true,
 	"template_settings":
