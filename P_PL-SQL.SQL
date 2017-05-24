@@ -278,6 +278,11 @@ INNER JOIN tutor t ON a.clvTutor = t.clvTutor
 INNER JOIN responsable r ON t.clvTutor = r.clvRes;
 --Alumno mujer y hombres
 --Inscritos en que grupo
-SELECT a.nomAlu AS ALUMNO, a.apPatAlu AS "APELLIDO PAT", a.apMatAlu AS "APELLIDO MAT",
+CREATE OR REPLACE VIEW vistaAlumnoXGrupo
+AS
+SELECT a.nomAlu AS ALUMNO, a.apPatAlu AS "APELLIDO PAT", a.apMatAlu AS "APELLIDO MAT", i.cicloInsc AS CICLO, g.letra AS GRUPO, g.numGrado AS N
+FROM alumno a
+INNER JOIN inscripcion i ON a.clvAlumno = i.clvAlumno
+INNER JOIN grupo g ON i.clvGrupo = g.clvGrupo;
 --Liquidación de pagos
 --Horario del responsable con telefono
