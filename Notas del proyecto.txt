@@ -1,0 +1,52 @@
+Notas del proyecto
+
+ALUMNO
+-clave
+-Nombre
+-Nacimiento
+-Curp
+-Sexo
+-Lugar de nacimiento
+-Dirección
+
+ALUMNO_RESP
+-clvAlumno
+-clvResp
+-parentesco
+
+RESPONSABLE
+-Generales
+
+INSCRIPCIÓN
+-clvInsc
+-clvAlumno
+-ciclo
+-grado
+-grupo
+-fechaInscripcion
+
+CARGO
+-clvInsc
+-clvServ (RELACION FALTANTE 1:m)
+-clvCargo
+-fechaCreación
+-fechaVencimiento
+-importe
+
+CREDITO
+-clvInsc
+-clvAbono
+-refCargo
+-clvServ (RELACION FALTANTE 1:m)
+-fecha
+-descripcion
+-Importe
+-fechaPago
+
+
+-DISPARADOR DE CARGOS
+SELECT periodoPagos INTO vPagos
+FROM -------
+WHERE claveInscrip = new.clvInscrip
+LOOP
+	INSERT INTO cargo ------

@@ -355,23 +355,65 @@ END IF;
 END deudaTotal;
 /
 
-SELECT fechaCrea, fechaVenc, fechaPago, nomAlu, rfc, importeCar
- FROM cargo
- JOIN inscripcion USING(clvInscrip)
- JOIN alumno USING(clvAlumno)
- JOIN tutor USING(clvTutor)
- WhERE (TRUNC(fechaCrea) >= '22/05/17'
- AND TRUNC(fechaVenc) <= '22/05/17')
- AND fechaPago IS NULL
- AND clvTutor = '1';
+--Procedimineto para dar de baja un responsable
+
+CREATE OR REPLACE PROCEDURE bajaresponsable(
+vClvRes IN CHAR)
+AS
+BEGIN
+	DELETE FROM responsable
+	WHERE ClvRes=vClvRes;
+	COMMIT;
+	DBMS_OUTPUT.PUT_LINE('baja del Responsable '|| vClvRes);
+END bajaresponsable;
+/
+
+--Fin procedimiento para dar de baja responsable
+
+--Procedimiento cuantos alumnos hay inscritos en un determinado periodo
+
+CREATE OR REPLACE PROCEDURE alumnosinscritos(
+vcicloInsc IN VARCHAR2)
+AS
+vBuscaAlumno alumno.clvAlumno%TYPE;
+BEGIN
+	SELECT a.nomAlu INTO vBuscaAlumno
+	FROM alumno a,inscripcion i 
+	WHERE i.clvAlumno=a.clvAlumno
+	AND i.cicloInsc=vcicloInsc;
+	DBMS_OUTPUT.PUT_LINE('Alumno inscritos'||vCicloInsc);
+END alumnosinscritos;
+/	
+	
+--Fin procedimiento cuantos alumnos hay inscritos en un determinado periodo
+
+CREATE OR REPLACE PROCEDURE preciosServicios(
+vGrado IN VARCHAR2)
+AS
+	CURSOR cursorServicios
+	IS
+	SELECT s.clvServ, numGrado, nomServicio, precio
+	FROM servicios s
+	INNER JOIN grad_serv gs
+	ON s.clvServ = gs.clvServ
+	WHERE numGrado = vGrado;
+BEGIN
+	DBMS_OUTPUT.PUT_LINE('Precios de: '||vGrado||' Grado');
+	FOR preciosReg IN cursorServicios LOOP
+		DBMS_OUTPUT.PUT_LINE(' | '||preciosReg.s.clvServ||' | '||preciosReg.numGrado||' | '||preciosReg.nomServicio||' | '||preciosReg.precio);
+	END LOOP
+END preciosServicios;
+/
+
 --Creacion de Vistas
 
 CREATE OR REPLACE VIEW obtenerPreciosServ
 AS
-SELECT clvServ, descripServ, numGrado, precio
-FROM servicio
-JOIN grad_serv USING(clvServ)
-JOIN grado USING(numGrado);
+SELECT s.clvServ, numGrado, nomServicio AS NOMBRE, precio
+FROM servicios s
+INNER JOIN grad_serv gs
+ON s.clvServ = gs.clvServ;
+
 
 --Insertar responsables
 

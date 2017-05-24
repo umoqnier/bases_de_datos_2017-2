@@ -37,11 +37,11 @@ vclvAlumno IN CHAR)
 AS
 
 BEGIN
-SELECT c.Servicio 
-FROM alumno a,inscripcion i,cargo ca,credito ce
-WHERE a.clvalumno=i.clvalumno
-AND i.clvinscrip=ca.clvinscrip
-AND i.clvinscrip=ce.clvinscrip;
+	SELECT servicio 
+	FROM alumno
+	JOIN inscripcion USING(clvAlumno)
+	JOIN cargo USING(clvinscrip)
+	JOIN credito USING(clvinscrip)
 DBMS_OUTPUT.PUT_LINE('Adeudos'||vclvalumno);
 END pagospendientes;
 /
