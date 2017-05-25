@@ -233,6 +233,14 @@ EXEC insertaAlumno('1', '1', 'BAMD220407', 'Diego', 'Barriga', 'Martínez', '22/
 EXEC insertaAlumno('2', '6', 'LODD191106', 'Juan', 'Lopez', 'Dominguez', '19/11/2006', 'H', 'Oxxo #56, Centro, Coyoacan');
 EXEC insertaAlumno('3', '3', 'SAME060309', 'Ester', 'Sanchez', 'Martínez', '06/03/2009', 'M', 'Dakota #425, Paises, Tlalpan');
 
+--Insertar contacto
+EXEC insertarContacto('1', '53674398', '9:30-16:00');
+EXEC insertarContacto('2', '51783243', '11:45-19:00');
+EXEC insertarContacto('3', '56783291', '7:00-13:00');
+EXEC insertarContacto('4', '59004938', '9:00-14:00');
+EXEC insertarContacto('5', '21342442', '6:00-13:45');
+EXEC insertarContacto('6', '53658673', '10:00-16:00');
+
 --Para pruebas
 INSERT INTO inscripcion
 VALUES ('IN001', '1', '16', '4', '2017-2', 3);

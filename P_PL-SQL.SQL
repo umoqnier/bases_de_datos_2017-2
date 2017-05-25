@@ -1,22 +1,34 @@
 CREATE SEQUENCE numNotaCargo
 START WITH 1 INCREMENT BY 1;
 
+--Creacion de Funciones
+CREATE OR REPLACE FUNCTION obtieneFechaVencimiento(vServicio IN VARCHAR2)
+RETURN DATE
+IS
+	vFecha DATE;
+BEGIN
+	IF vServicio = 'Inscripcion' THEN
+		vFecha := SYSDATE;
+	ELSE
+		vFecha := '22/08/17'; --Dian en que empiezan las clases en escuelas 
+	END IF;
+	RETURN(vFecha);
+END obtieneFechaVencimiento;
+/
 
 -- DISPARADOR CARGO
 CREATE OR REPLACE TRIGGER creaServ
-	AFTER INSERT ON inscripcion
+AFTER INSERT 
+ON inscripcion
 DECLARE 
-	vclvServ servicios.clvServ%TYPE;
-	vNomServicio servicios.nomServicio%TYPE;
-	vprecio grad_serv.precio%TYPE;
-	
+	vclvServ CHAR(4);
+	vNomServicio VARCHAR2(30);
+	vprecio NUMBER(11, 2);
 	CURSOR obtieneServ 
 	IS
 		SELECT clvServ, nomServicio		
-		FROM servicios;
-	
+		FROM servicios;	
 BEGIN	
-
 	OPEN obtieneServ;
 	LOOP		
 		
@@ -29,7 +41,7 @@ BEGIN
 		AND gs.clvServ = vclvServ;
 		
 		INSERT INTO cargo
-		VALUES('numNotaCargo.NEXVAL',:OLD.clvInscrip,SYSDATE,FUNCIONFECHAVENC,NULL,vNomServicio,vprecio);--FALTA VERIFICAR FECHAVENC
+		VALUES('numNotaCargo.NEXVAL',:OLD.clvInscrip,SYSDATE, obtieneFechaVencimiento(vNomServicio),NULL,, vprecio);--FALTA VERIFICAR FECHAVENC
 	END LOOP;
 	CLOSE obtieneServ;
 END creaServ;
@@ -209,21 +221,23 @@ BEGIN
 END bajaresponsable;
 /
 
---Fin procedimiento para dar de baja responsable
-
 --Procedimiento cuantos alumnos hay inscritos en un determinado periodo
 
-CREATE OR REPLACE PROCEDURE alumnosinscritos(
-vcicloInsc IN VARCHAR2)
+CREATE OR REPLACE PROCEDURE alumnosInscritos(
+vCicloInsc IN VARCHAR2)
 AS
-vBuscaAlumno alumno.clvAlumno%TYPE;
+	CURSOR cursorAlumnos
+	IS
+	SELECT a.nomAlu, a.apPatAlu, a.apMatAlu, a.curp
+	FROM alumno a
+	INNER JOIN inscripcion i ON a.clvAlumno = i.clvAlumno
+	WHERE i.cicloInsc = vCicloInsc;
 BEGIN
-	SELECT a.nomAlu INTO vBuscaAlumno
-	FROM alumno a,inscripcion i 
-	WHERE i.clvAlumno=a.clvAlumno
-	AND i.cicloInsc=vcicloInsc;
-	DBMS_OUTPUT.PUT_LINE('Alumno inscritos'||vCicloInsc);
-END alumnosinscritos;
+	DBMS_OUTPUT.PUT_LINE('ALumno pertenecientes al ciclo '||vCicloInsc);
+	FOR alumnosInsc IN cursorAlumnos LOOP
+		DBMS_OUTPUT.PUT_LINE('| '||alumnosInsc.nomAlu||' | '||alumnosInsc.apPatAlu||' | '||alumnosInsc.apMatAlu||' | '||alumnosInsc.curp||' |');
+	END LOOP;
+END alumnosInscritos;
 /	
 	
 --Fin procedimiento cuantos alumnos hay inscritos en un determinado periodo
@@ -256,6 +270,21 @@ BEGIN
 	DBMS_OUTPUT.PUT_LINE('baja del Responsable '|| vClvRes);
 END bajaresponsable;
 /
+
+--Procedimiento para insertar contacto
+CREATE OR REPLACE PROCEDURE insertarContacto(
+vClvRes IN CHAR,
+vTelefono IN VARCHAR2, 
+vHorarioDisp IN VARCHAR2
+)
+AS
+BEGIN
+	INSERT INTO contacto
+	VALUES (vClvRes, vTelefono, vHorarioDisp);
+	COMMIT;
+END insertarContacto;
+/
+
 --Creacion de Vistas
 
 --Ver si hay pago pendiente
@@ -277,6 +306,11 @@ FROM alumno a
 INNER JOIN tutor t ON a.clvTutor = t.clvTutor
 INNER JOIN responsable r ON t.clvTutor = r.clvRes;
 --Alumno mujer y hombres
+CREATE OR REPLACE VIEW vistaNumeroAlumnosXSexo
+AS
+SELECT sexoAlu AS SEXO, COUNT(sexoAlu) AS "#" 
+FROM Alumno
+GROUP BY sexoAlu;
 --Inscritos en que grupo
 CREATE OR REPLACE VIEW vistaAlumnoXGrupo
 AS
@@ -284,5 +318,21 @@ SELECT a.nomAlu AS ALUMNO, a.apPatAlu AS "APELLIDO PAT", a.apMatAlu AS "APELLIDO
 FROM alumno a
 INNER JOIN inscripcion i ON a.clvAlumno = i.clvAlumno
 INNER JOIN grupo g ON i.clvGrupo = g.clvGrupo;
---Liquidación de pagos
+
+--SERVICIOS POR ALUMNO
+CREATE OR REPLACE VIEW vistaServicioXAlumno
+AS
+SELECT i.clvInscrip, a.nomAlu AS NOMBRE, a.apPatAlu AS "APELLIDO PAT", a.apMatAlu AS "APELLIDO MAT", g.numGrado AS G, gs.precio, s.nomServicio AS SERVICIO
+FROM alumno a
+INNER JOIN inscripcion i ON a.clvAlumno = i.clvAlumno
+INNER JOIN grupo g ON i.clvGrupo = g.clvGrupo
+INNER JOIN grado gr ON g.numGrado = gr.numGrado
+INNER JOIN grad_serv gs ON gr.numGrado = gs.numGrado
+INNER JOIN servicios s ON gs.clvServ = s.clvServ;
+
 --Horario del responsable con telefono
+CREATE OR REPLACE VIEW vistaHorarioResponsable
+AS
+SELECT nomRes AS NOMBRE, apPatRes AS "APELLIDO PAT", apMatRes AS "APELLIDO MAT", telefono, horarioDisp AS HORARIO
+FROM responsable
+JOIN contacto USING(clvRes);
